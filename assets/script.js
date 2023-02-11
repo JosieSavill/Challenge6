@@ -26,7 +26,7 @@ function getCoords() {
 
 function getWeather(lat, lon) {
 
-     var apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+     var apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
 
      fetch(apiUrl)
         .then(function (res) { 
@@ -36,6 +36,20 @@ function getWeather(lat, lon) {
         .then(function (data) {
            
             console.log(data)
+            var currentWeather = document.querySelector(".currentWeather");
+            var currentTemp = document.querySelector(".currentTemp");
+            var currentHumidity = document.querySelector(".currentHumidity");
+            var currentWindSpeed = document.querySelector(".currentWindSpeed");
+            var dayTwoTemp = document.querySelector(".dayTwoTemp");
+            var dayTwoHumidity = document.querySelector(".dayTwoHumidity");
+            var dayTwoWindSpeed = document.querySelector(".dayTwoWindSpeed");
+            currentTemp.textContent = "Today's Temp: "+ data.list[0].main.temp +"*F";
+            currentHumidity.textContent = "Today's Humidity Index: " + data.list[0].main.humidity + " %";
+            currentWindSpeed.textContent = "Today's Wind Speed Index: " + data.list[0].wind.speed;
+            dayTwoTemp.textContent = "Tomorrow's Temperature: " + data.list[1].main.temp + "*F";
+            dayTwoHumidity.textContent = "Tomorrow's Humidity Index: " + data.list[1].main.humidity + " %";
+            dayTwoWindSpeed.textContent = "Tomorrow's Wind Index: " + data.list[1].wind.speed;
+
            
         })
 
