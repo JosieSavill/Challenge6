@@ -1,12 +1,75 @@
 var apiKey  = "e03b14a13a81827b9aeafad59274a1cc"
 
+var searchHistory = []
+
+
+//loading search history
+;
 
 
 
-function getCoords() {
+/*
+1. first get the element
+2. add to that element
 
-    var searchCity = document.querySelector("#search-input").value;
-    var apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchCity}&appid=${apiKey}`
+
+*/
+function load(){
+
+    if(localStorage.getItem("searchHistory") !== null){
+        var mySearchHistory = JSON.parse( localStorage.getItem("searchHistory") ) //returns an array
+
+        searchHistory = mySearchHistory; //add city ies in local storage
+        var savedCityEl = document.querySelector("#searchHistory");
+        savedCityEl.innerHTML = "";
+    
+        if(searchHistory != null){
+            
+            searchHistory.forEach(city => {
+                console.log("i got element", city)
+                var buttonEl = document.createElement("button"); //create a button <button></button>
+                buttonEl.textContent = city //add text inside
+                buttonEl.addEventListener("click", function() {
+                    console.log("???")
+                    getCoords(city)
+                })
+                savedCityEl.appendChild(buttonEl);
+               
+            
+            });
+    
+    
+    
+        }
+
+
+
+    } else {
+        searchHistory = [];
+    }
+   
+   
+
+
+}
+load();
+
+
+
+
+function getCoords(city) {
+
+    //saving search
+    searchHistory.push(document.querySelector("#search-input").value)
+    localStorage.setItem("searchHistory",JSON.stringify(searchHistory) );
+
+    load();
+
+
+
+    //search
+    //var searchCity = document.querySelector("#search-input").value;
+    var apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
 
     fetch(apiUrl)
         .then(function (res) { 
@@ -61,7 +124,15 @@ function getWeather(lat, lon) {
 
 
 
-document.querySelector("#search-btn").addEventListener("click", getCoords);
+
+
+document.querySelector("#search-btn").addEventListener("click", function(){
+
+    var searchCity = document.querySelector("#search-input").value;
+
+
+    getCoords(searchCity)
+});
 
 
 
