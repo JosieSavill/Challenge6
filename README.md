@@ -20,8 +20,7 @@ Link to Github Repository: https://github.com/JosieSavill/Weather-Dashboard
 
 
 
-![URL image](assets\weatherDashboard.png)
-
+![URL image](./assets/weatherDashboard.png)
 
 
 
