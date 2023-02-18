@@ -158,7 +158,7 @@ function getWeather(lat, lon) {
             }
             
   
-            // added
+            
 
 
 

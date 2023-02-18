@@ -60,6 +60,14 @@ main{
     color: white;
 }
 
+#search-btn{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
 
 /*  */
 @media screen and (max-width: 768px) {
