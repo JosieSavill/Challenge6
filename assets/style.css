@@ -1,14 +1,51 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: #13293d;
+    color: #fff;
+    padding: 35px;
+  }
+
+  h1::after {
+    font-family: Impact;
+    font-style: oblique;
+    content: ' DASHBOARD🌦️';
+    color: #8ac4ff;
+    margin-left: 5px;
+  }
+
+
+
+
+
+
+
+
+
 main{
     display: flex;
     flex-wrap: wrap;
+    background-color: rgb(165, 130, 130);
+    
 }
 
 .left   {
+    display: flex;
+    flex-direction: column;
     width: 20%;
+    padding: 30px;
 }
 
 .right {
+    display: flex;
+    flex-direction: column;
     width: 80%;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 900;
+    font-style: oblique;
+    padding: 20px;
 }
 
 #searchHistory{
@@ -16,3 +53,19 @@ main{
     flex-direction: column;
     gap: 10px;
 }
+
+
+
+
+/*  */
+@media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+    }
+  
+    main {
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+    }
+  }

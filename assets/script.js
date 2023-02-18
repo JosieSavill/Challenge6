@@ -4,7 +4,7 @@ var searchHistory = []
 
 
 //loading search history
-;
+
 
 
 
@@ -112,6 +112,10 @@ function getWeather(lat, lon) {
             dayTwoTemp.textContent = "Tomorrow's Temperature: " + data.list[1].main.temp + "*F";
             dayTwoHumidity.textContent = "Tomorrow's Humidity Index: " + data.list[1].main.humidity + " %";
             dayTwoWindSpeed.textContent = "Tomorrow's Wind Index: " + data.list[1].wind.speed;
+
+            // added
+
+            
 
            
         })
