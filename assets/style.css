@@ -54,7 +54,16 @@ main{
     gap: 10px;
 }
 
-
+.fiveDayForecast{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.fiveDayForecast div{
+    border: solid 1px black;
+    background-color: black;
+    color: white;
+}
 
 
 /*  */
@@ -66,6 +75,6 @@ main{
     main {
       max-width: 1200px;
       display: flex;
-      flex-direction: column;
+      flex-direction: column                               ;
     }
   }

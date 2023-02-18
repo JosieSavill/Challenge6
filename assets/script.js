@@ -31,7 +31,7 @@ function load(){
                 buttonEl.textContent = city //add text inside
                 buttonEl.addEventListener("click", function() {
                     console.log("???")
-                    getCoords(city)
+                    getCoords(city, true)
                 })
                 savedCityEl.appendChild(buttonEl);
                
@@ -57,11 +57,14 @@ load();
 
 
 
-function getCoords(city) {
+function getCoords(city, button = false) {
 
     //saving search
-    searchHistory.push(document.querySelector("#search-input").value)
-    localStorage.setItem("searchHistory",JSON.stringify(searchHistory) );
+    if(!button){
+        searchHistory.push(document.querySelector("#search-input").value)
+        localStorage.setItem("searchHistory",JSON.stringify(searchHistory) );
+    }
+
 
     load();
 
@@ -69,7 +72,7 @@ function getCoords(city) {
 
     //search
     //var searchCity = document.querySelector("#search-input").value;
-    var apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
 
     fetch(apiUrl)
         .then(function (res) { 
@@ -77,11 +80,15 @@ function getCoords(city) {
         })
 
         .then(function (data) {
-           console.log(data)
-           console.log("lat", data[0].lat)
+
+
+           //console.log(data)
+           //console.log("lat", data[0].lat)
            var lat = data[0].lat;
            var lon = data[0].lon;
            getWeather(lat, lon); 
+
+
            
         })
 }
@@ -89,7 +96,7 @@ function getCoords(city) {
 
 function getWeather(lat, lon) {
 
-     var apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
+     var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
 
      fetch(apiUrl)
         .then(function (res) { 
@@ -97,25 +104,63 @@ function getWeather(lat, lon) {
         })
 
         .then(function (data) {
-           
-            console.log(data)
-            var currentWeather = document.querySelector(".currentWeather");
+
+
+            //current weather
+         
             var currentTemp = document.querySelector(".currentTemp");
             var currentHumidity = document.querySelector(".currentHumidity");
             var currentWindSpeed = document.querySelector(".currentWindSpeed");
-            var dayTwoTemp = document.querySelector(".dayTwoTemp");
-            var dayTwoHumidity = document.querySelector(".dayTwoHumidity");
-            var dayTwoWindSpeed = document.querySelector(".dayTwoWindSpeed");
+
+    
             currentTemp.textContent = "Today's Temp: "+ data.list[0].main.temp +"*F";
             currentHumidity.textContent = "Today's Humidity Index: " + data.list[0].main.humidity + " %";
             currentWindSpeed.textContent = "Today's Wind Speed Index: " + data.list[0].wind.speed;
-            dayTwoTemp.textContent = "Tomorrow's Temperature: " + data.list[1].main.temp + "*F";
-            dayTwoHumidity.textContent = "Tomorrow's Humidity Index: " + data.list[1].main.humidity + " %";
-            dayTwoWindSpeed.textContent = "Tomorrow's Wind Index: " + data.list[1].wind.speed;
 
+
+           
+            console.log("weather:",data)
+            //0, 8, 16, 24,32
+            let fiveDayEl = document.querySelector(".fiveDayForecast");
+            fiveDayEl.innerHTML = ""; //empty before you add
+
+            for(let i = 0; i < 5; i++){
+                let day = data.list[0 + (i * 8)];
+                let divEl = document.createElement("div"); //parent div
+
+
+                let pElDate =  document.createElement("p"); //create p element
+                pElDate.textContent = day.dt_txt; //add text to p elemet
+                let pElTemp = document.createElement("p")
+                pElTemp.textContent = "temp:" + day.main.temp;
+                let pElWind = document.createElement("p")
+                pElWind.textContent = "wind:" + day.wind.speed;
+                let pElHumid = document.createElement("p");
+                pElHumid.textContent = "humidity" + day.main.humidity + "%"
+                let icon = document.createElement("img");
+                //https://openweathermap.org/img/w/10d.png
+                icon.setAttribute("src", "https://openweathermap.org/img/w/"  + day.weather[0].icon + ".png")
+
+                icon.setAttribute("alt", day.weather[0].icon)
+
+                divEl.appendChild(pElDate) 
+                divEl.appendChild(icon)
+                divEl.appendChild(pElTemp)
+                divEl.appendChild(pElWind)
+                divEl.appendChild(pElHumid)
+           
+     
+             
+                fiveDayEl.appendChild(divEl)
+
+
+
+            }
+            
+  
             // added
 
-            
+
 
            
         })
@@ -135,7 +180,7 @@ document.querySelector("#search-btn").addEventListener("click", function(){
     var searchCity = document.querySelector("#search-input").value;
 
 
-    getCoords(searchCity)
+    getCoords(searchCity, false)
 });
 
 
