@@ -29,18 +29,19 @@ main{
 .left   {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    padding: 30px;
+    width: 20%;
+    padding: 10px;
 }
 
 .right {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: 900;
     font-style: oblique;
     padding: 20px;
+    color: white;
 }
 
 #searchHistory{
@@ -86,6 +87,7 @@ main{
     border: solid 1px black;
     background-color: black;
     color: white;
+    margin-left: 18px;
 }
 
 #search-btn{
@@ -115,19 +117,25 @@ main{
 button{
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
+    gap: 10px;
     margin-bottom: 8px;
 }
 
 
 /*  */
 @media screen and (max-width: 768px) {
-    header {
+    header,
+    main {
       flex-direction: column;
     }
-  
-    main {
+
+    /* .right {
+        order: 2;
+      }
+   */
+    /* main {
       max-width: 1200px;
       display: flex;
-      flex-direction: column                               ;
-    }
+      flex-direction: column;                               
+    } */
   }
