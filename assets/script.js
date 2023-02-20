@@ -2,6 +2,13 @@ var apiKey  = "e03b14a13a81827b9aeafad59274a1cc"
 
 var searchHistory = []
 
+// adding 2 var for clear button on line 7 and 8
+
+var clearEl = document.querySelector('#clear');
+var textAreaEl = document.querySelector('#search-input');
+
+
+
 
 //loading search history
 
@@ -157,7 +164,8 @@ function getWeather(lat, lon) {
 
             }
             
-  
+            
+           
             
 
 
@@ -184,4 +192,17 @@ document.querySelector("#search-btn").addEventListener("click", function(){
 });
 
 
+
+
+
+
+// added clear button method on line 209
+
+
+clearEl.addEventListener('click', function (event) {
+    event.preventDefault();
+    textAreaEl.value = '';
+  
+   
+  });
 
