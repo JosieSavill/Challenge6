@@ -20,7 +20,7 @@ Link to Github Repository: https://github.com/JosieSavill/Weather-Dashboard
 
 
 
-![URL image](./assets/updatedweather.png)
+![URL image](./assets/newestweatherdash.png)
 
 
 

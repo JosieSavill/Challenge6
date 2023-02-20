@@ -59,7 +59,7 @@ main{
     gap: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
-    background-color: #64a2e0;
+    background-color: #8ac4ff;
     margin-bottom: 8px; 
 }
 
@@ -71,7 +71,8 @@ main{
     gap: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
-    background-color: #64a2e0;  
+    background-color: #8ac4ff;
+    margin-top: 20px;  
 }
 
 
@@ -94,8 +95,8 @@ main{
     gap: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
-    margin-bottom: 12px;
-    background-color: #64a2e0;
+    margin-bottom: 8px;
+    background-color: #8ac4ff;
 
 }
 

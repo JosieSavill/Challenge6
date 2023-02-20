@@ -13,6 +13,9 @@ var clearHistoryEl = document.querySelector('#clearHistory');
 
 
 
+
+
+
 //loading search history
 
 
@@ -215,7 +218,12 @@ clearEl.addEventListener('click', function (event) {
 clearHistoryEl.addEventListener('click', function (event) {
     event.preventDefault();
     textAreaEl.value = '';
+    localStorage.clear();
   
    
   });
+
+
+
+
 
