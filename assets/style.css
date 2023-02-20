@@ -6,6 +6,7 @@ header {
     background-color: #13293d;
     color: #fff;
     padding: 35px;
+    
   }
 
   h1::after {
@@ -14,6 +15,7 @@ header {
     content: ' DASHBOARD🌦️';
     color: #8ac4ff;
     margin-left: 5px;
+    
   }
 
 
@@ -49,15 +51,29 @@ main{
     
 }
 
-/* added clear button stying line 52 thru 59 */
+/* added clear button styling  */
 #clear{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0, 1); 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
+    background-color: #64a2e0;
+    margin-bottom: 8px; 
 }
+
+/* added clear history btn styling */
+#clearHistory{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
+    background-color: #64a2e0;  
+}
+
 
 .fiveDayForecast{
     display: flex;
@@ -78,7 +94,8 @@ main{
     gap: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
-    margin-bottom: 5px;
+    margin-bottom: 12px;
+    background-color: #64a2e0;
 
 }
 
@@ -90,7 +107,14 @@ main{
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
     gap: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+}
+
+/* added button styling */
+button{
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
+    margin-bottom: 8px;
 }
 
 

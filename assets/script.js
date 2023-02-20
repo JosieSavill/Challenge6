@@ -7,6 +7,9 @@ var searchHistory = []
 var clearEl = document.querySelector('#clear');
 var textAreaEl = document.querySelector('#search-input');
 
+// added var for clear history button on line 11
+var clearHistoryEl = document.querySelector('#clearHistory');
+
 
 
 
@@ -196,10 +199,20 @@ document.querySelector("#search-btn").addEventListener("click", function(){
 
 
 
-// added clear button method on line 209
+// added 'clear button' method on line 202
 
 
 clearEl.addEventListener('click', function (event) {
+    event.preventDefault();
+    textAreaEl.value = '';
+  
+   
+  });
+
+  // added 'clear history' button method on line 212
+
+
+clearHistoryEl.addEventListener('click', function (event) {
     event.preventDefault();
     textAreaEl.value = '';
   
