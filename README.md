@@ -17,21 +17,6 @@ Link to Deployed URL: https://josiesavill.github.io/Weather-Dashboard/
 Link to Github Repository: https://github.com/JosieSavill/Weather-Dashboard
 
 
-
-
-
-![URL image](./assets/weatherDashboardPic.png)
-
-
-
-
-
-
-
-
-
-
-
 Links used:
 
 
@@ -45,6 +30,24 @@ https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
 
 
 https://openweathermap.org/widgets-constructor
+
+
+
+![URL image](./assets/weatherDashboard2.png)
+
+![URL image](./assets/weatherMobileView.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

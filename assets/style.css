@@ -18,11 +18,15 @@ header {
     
   }
 
-
+body{
+    background-color: rgb(202, 139, 139);
+}
 main{
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(165, 130, 130);
+    background-color: rgb(202, 139, 139);
+    /* //background-image: url(""); */
+    /* background-size: cover; */
     
 }
 
@@ -66,24 +70,28 @@ main{
 
 /* added clear history btn styling */
 #clearHistory{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
+ 
+
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
     background-color: #8ac4ff;
-    margin-top: 20px;  
+    margin-top: 20px; 
+    text-align: center;
 }
 
 
 .fiveDayForecast{
     display: flex;
+
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
 }
 .fiveDayForecast div{
+    padding: 10px;
+    flex-grow: 1;
+
+    border-radius: 10px;
     border: solid 1px black;
     background-color: black;
     color: white;
@@ -99,6 +107,7 @@ main{
     box-shadow: 0 4px 8px 0 rgba(0,0,0, 1);
     margin-bottom: 8px;
     background-color: #8ac4ff;
+    
 
 }
 
@@ -128,14 +137,13 @@ button{
     main {
       flex-direction: column;
     }
+    .left,.right{
+        width: 100%;
+    }
 
     /* .right {
         order: 2;
       }
    */
-    /* main {
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;                               
-    } */
+    
   }

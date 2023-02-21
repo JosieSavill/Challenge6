@@ -4,12 +4,12 @@ var searchHistory = []
 
 // adding 2 var for clear button on line 7 and 8
 
-var clearEl = document.querySelector('#clear');
+//var clearEl = document.querySelector('#clear');
 var textAreaEl = document.querySelector('#search-input');
 
 // added var for clear history button on line 11
 var clearHistoryEl = document.querySelector('#clearHistory');
-
+var savedCityEl = document.querySelector("#searchHistory");
 
 
 
@@ -33,7 +33,7 @@ function load(){
         var mySearchHistory = JSON.parse( localStorage.getItem("searchHistory") ) //returns an array
 
         searchHistory = mySearchHistory; //add city ies in local storage
-        var savedCityEl = document.querySelector("#searchHistory");
+       
         savedCityEl.innerHTML = "";
     
         if(searchHistory != null){
@@ -74,7 +74,7 @@ function getCoords(city, button = false) {
 
     //saving search
     if(!button){
-        searchHistory.push(document.querySelector("#search-input").value)
+        searchHistory.push(city)
         localStorage.setItem("searchHistory",JSON.stringify(searchHistory) );
     }
 
@@ -143,7 +143,11 @@ function getWeather(lat, lon) {
 
 
                 let pElDate =  document.createElement("p"); //create p element
-                pElDate.textContent = day.dt_txt; //add text to p elemet
+
+
+                let dateFormatted = dayjs(day.dt_txt).format("M/D/YY");
+
+                pElDate.textContent = dateFormatted; //add text to p elemet
                 let pElTemp = document.createElement("p")
                 pElTemp.textContent = "temp:" + day.main.temp;
                 let pElWind = document.createElement("p")
@@ -194,24 +198,23 @@ document.querySelector("#search-btn").addEventListener("click", function(){
     var searchCity = document.querySelector("#search-input").value;
 
 
+
     getCoords(searchCity, false)
+    document.querySelector("#search-input").value = "";
 });
-
-
-
 
 
 
 // added 'clear button' method on line 202
 
-
+/*
 clearEl.addEventListener('click', function (event) {
     event.preventDefault();
     textAreaEl.value = '';
   
    
   });
-
+*/
   // added 'clear history' button method on line 212
 
 
@@ -219,6 +222,10 @@ clearHistoryEl.addEventListener('click', function (event) {
     // event.preventDefault();
     // textAreaEl.value = '';
     localStorage.clear();
+    savedCityEl.innerHTML = "";
+    searchHistory = [];
+    console.log("check",localStorage.getItem("searchHistory"))
+
   
    
   });
